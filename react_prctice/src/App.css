@@ -1,0 +1,16 @@
+*{
+    background-color: rgb(46, 41, 41);
+    color: #ffffff;
+    
+    
+
+}
+
+.main{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh; 
+    
+}
