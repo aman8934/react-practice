@@ -2,7 +2,7 @@ import { createSlice,nanoid } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    todos : [{id:1,text:""}]
+    todos : [{id:1,text:"",completed : false}]
 }
 const todoslice =createSlice({
     name : 'todo',
@@ -11,7 +11,8 @@ const todoslice =createSlice({
         addtodo : (state,action) => {
         const todo={
             id:nanoid(),
-            text:action.payload
+            text:action.payload,
+            completed : false
         }
         state.todos.push(todo)   //state update from initial state
         },
@@ -20,6 +21,8 @@ const todoslice =createSlice({
         },
         editTodo : (state,action) => {
             const {id , newText} =action.payload
+           
+            
             state.todos = state.todos.map(todo =>
              todo.id === id ? { ...todo, text: newText } : todo)
   
@@ -29,6 +32,6 @@ const todoslice =createSlice({
 }
 )
 
-export const {addtodo , removetodo} = todoslice.actions
+export const {addtodo , removetodo,editTodo} = todoslice.actions
 
 export default todoslice.reducer
